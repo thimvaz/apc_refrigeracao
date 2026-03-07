@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APC Refrigeração - Assistência Técnica em Jundiaí</title>
     <style>
-        /* Estilos Globais (MANTIDOS) */
+        /* Estilos Globais */
         :root {
             --azul-principal: #004080;
             --azul-claro: #0066cc;
@@ -28,7 +28,7 @@
             line-height: 1.6;
         }
 
-        /* Botão do WhatsApp (MANTIDO) */
+        /* Botão do WhatsApp */
         .btn-whatsapp {
             display: inline-block;
             background-color: var(--verde-wpp);
@@ -47,7 +47,7 @@
             background-color: var(--verde-wpp-hover);
         }
 
-        /* Cabeçalho Azul com Logo (AJUSTADO) */
+        /* Cabeçalho Azul com Logo */
         header {
             background-color: var(--azul-principal);
             color: var(--branco);
@@ -56,7 +56,7 @@
         }
 
         header img.logo {
-            max-width: 200px; /* Ajuste o tamanho da logo */
+            max-width: 200px;
             margin-bottom: 20px;
         }
 
@@ -70,7 +70,7 @@
             margin-bottom: 20px;
         }
 
-        /* Seções Gerais (MANTIDO) */
+        /* Seções Gerais */
         section {
             padding: 40px 20px;
             max-width: 1000px;
@@ -84,7 +84,7 @@
             font-size: 2rem;
         }
 
-        /* Destaques (SENAI, 10 anos) (MANTIDO) */
+        /* Destaques (SENAI, 10 anos) */
         .destaques {
             background-color: var(--fundo-claro);
             padding: 30px;
@@ -98,18 +98,32 @@
             font-weight: bold;
         }
 
-        /* Grid de Produtos e Marcas (AJUSTADO PARA IMAGENS) */
-        .grid-lista {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        /* --- ESTILOS DO CARROSSEL AUTOMÁTICO --- */
+        .carrossel-container {
+            overflow: hidden;
+            width: 100%;
+            padding: 20px 0;
         }
 
-        .item-lista {
+        .carrossel-track {
+            display: flex;
+            width: max-content;
+            animation: deslizar-infinito 30s linear infinite; 
+        }
+
+        .carrossel-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes deslizar-infinito {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+
+        .item-carrossel {
             background-color: var(--branco);
             border: 1px solid #ccc;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             display: flex;
@@ -117,19 +131,23 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            width: 150px; 
+            margin: 0 10px; 
         }
 
-        .item-lista img {
-            max-width: 100px; /* Tamanho dos ícones/logos */
+        .item-carrossel img {
+            max-width: 80px;
             max-height: 80px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            object-fit: contain;
         }
 
-        .item-lista span {
+        .item-carrossel span {
             font-weight: 500;
+            font-size: 0.9rem;
         }
 
-        /* Depoimentos (MANTIDO) */
+        /* Depoimentos */
         .avaliacoes-container {
             display: flex;
             flex-direction: column;
@@ -146,7 +164,7 @@
             font-style: italic;
         }
 
-        /* Rodapé (MANTIDO) */
+        /* Rodapé */
         footer {
             background-color: var(--texto-escuro);
             color: var(--branco);
@@ -180,42 +198,29 @@
 
     <section>
         <h2>Equipamentos que Trabalhamos</h2>
-        <div class="grid-lista">
-            <div class="item-lista">
-                <img src="assets/icons/ico_geladeira.jpeg" alt="Geladeira">
-                <span>Geladeiras</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_lavaloucas.jpeg" alt="Lava Louças">
-                <span>Lava-Louças</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_lavaroupas2.jpeg" alt="Máquina de Lavar">
-                <span>Máquina de Lavar</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_lavaroupas.jpeg" alt="Lava e Seca">
-                <span>Lava e Seca</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_forno.jpeg" alt="Forno Elétrico">
-                <span>Forno Elétrico</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_microondas.jpeg" alt="Microondas">
-                <span>Microondas</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_cooktop.jpeg" alt="Cooktop">
-                <span>Cooktop</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_purificador.jpeg" alt="Purificador de Água">
-                <span>Purificador de Água</span>
-            </div>
-             <div class="item-lista">
-                <img src="assets/icons/ico_coifa.jpeg" alt="Coifa">
-                <span>Coifa</span>
+        <div class="carrossel-container">
+            <div class="carrossel-track">
+                
+                <div class="item-carrossel"><img src="assets/icons/ico_geladeira.jpeg" alt="Geladeira"><span>Geladeiras</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_lavaloucas.jpeg" alt="Lava Louças"><span>Lava-Louças</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_lavaroupas2.jpeg" alt="Máquina de Lavar"><span>Máquina de Lavar</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_lavaroupas.jpeg" alt="Lava e Seca"><span>Lava e Seca</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_forno.jpeg" alt="Forno Elétrico"><span>Forno Elétrico</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_microondas.jpeg" alt="Microondas"><span>Microondas</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_cooktop.jpeg" alt="Cooktop"><span>Cooktop</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_purificador.jpeg" alt="Purificador de Água"><span>Purificador de Água</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_coifa.jpeg" alt="Coifa"><span>Coifa</span></div>
+
+                <div class="item-carrossel"><img src="assets/icons/ico_geladeira.jpeg" alt="Geladeira"><span>Geladeiras</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_lavaloucas.jpeg" alt="Lava Louças"><span>Lava-Louças</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_lavaroupas2.jpeg" alt="Máquina de Lavar"><span>Máquina de Lavar</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_lavaroupas.jpeg" alt="Lava e Seca"><span>Lava e Seca</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_forno.jpeg" alt="Forno Elétrico"><span>Forno Elétrico</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_microondas.jpeg" alt="Microondas"><span>Microondas</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_cooktop.jpeg" alt="Cooktop"><span>Cooktop</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_purificador.jpeg" alt="Purificador de Água"><span>Purificador de Água</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_coifa.jpeg" alt="Coifa"><span>Coifa</span></div>
+                
             </div>
         </div>
     </section>
@@ -230,38 +235,27 @@
 
     <section>
         <h2>Marcas que Atendemos</h2>
-        <div class="grid-lista">
-            <div class="item-lista">
-                <img src="assets/icons/ico_brastemp.jpeg" alt="Brastemp">
-                <span>Brastemp</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_consul.jpeg" alt="Consul">
-                <span>Consul</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_midea.jpeg" alt="Midea">
-                <span>Midea</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_eletrolux.jpeg" alt="Eletrolux">
-                <span>Eletrolux</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_continental.jpeg" alt="Continental">
-                <span>Continental</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_panasonic.jpeg" alt="Panasonic">
-                <span>Panasonic</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_samsung.jpeg" alt="Samsung">
-                <span>Samsung</span>
-            </div>
-            <div class="item-lista">
-                <img src="assets/icons/ico_lg.jpeg" alt="LG">
-                <span>LG</span>
+        <div class="carrossel-container">
+            <div class="carrossel-track">
+                
+                <div class="item-carrossel"><img src="assets/icons/ico_brastemp.jpeg" alt="Brastemp"><span>Brastemp</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_consul.jpeg" alt="Consul"><span>Consul</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_midea.jpeg" alt="Midea"><span>Midea</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_eletrolux.jpeg" alt="Eletrolux"><span>Eletrolux</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_continental.jpeg" alt="Continental"><span>Continental</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_panasonic.jpeg" alt="Panasonic"><span>Panasonic</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_samsung.jpeg" alt="Samsung"><span>Samsung</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_lg.jpeg" alt="LG"><span>LG</span></div>
+
+                <div class="item-carrossel"><img src="assets/icons/ico_brastemp.jpeg" alt="Brastemp"><span>Brastemp</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_consul.jpeg" alt="Consul"><span>Consul</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_midea.jpeg" alt="Midea"><span>Midea</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_eletrolux.jpeg" alt="Eletrolux"><span>Eletrolux</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_continental.jpeg" alt="Continental"><span>Continental</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_panasonic.jpeg" alt="Panasonic"><span>Panasonic</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_samsung.jpeg" alt="Samsung"><span>Samsung</span></div>
+                <div class="item-carrossel"><img src="assets/icons/ico_lg.jpeg" alt="LG"><span>LG</span></div>
+
             </div>
         </div>
     </section>
@@ -279,8 +273,7 @@
                 <p><strong>- Cristina, Itupeva</strong></p>
             </div>
             <div class="avaliacao">
-                <p>"Ótimo atendimento. O Alexandre consertou minha máquina de lavar com rapidez e muita competência. Serviço de confiança.
-"</p>
+                <p>"Ótimo atendimento. O Alexandre consertou minha máquina de lavar com rapidez e muita competência. Serviço de confiança."</p>
                 <p><strong>- Claudio, Jundiaí</strong></p>
             </div>
         </div>
