@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APC Refrigeração - Assistência Técnica em Jundiaí</title>
     <style>
-        /* Estilos Globais */
+        /* Estilos Globais e Variáveis de Cor */
         :root {
-            --azul-principal: #004080;
-            --azul-claro: #0066cc;
+            --azul-principal: #001a33; /* Azul marinho escuro (Novo fundo do site) */
+            --azul-claro: #003366; /* Azul médio para áreas de destaque */
             --verde-wpp: #25D366;
             --verde-wpp-hover: #128C7E;
             --fundo-claro: #f4f4f4;
             --texto-escuro: #333;
-            --branco: #fff;
+            --branco: #ffffff;
         }
 
         * {
@@ -23,8 +23,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* CORPO DO SITE EM AZUL MARINHO */
         body {
-            color: var(--texto-escuro);
+            background-color: var(--azul-principal);
+            color: var(--branco); /* Texto geral em branco */
             line-height: 1.6;
         }
 
@@ -34,11 +36,11 @@
             background-color: var(--verde-wpp);
             color: var(--branco);
             text-decoration: none;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 8px;
             font-weight: bold;
             font-size: 1.1rem;
-            margin: 15px 0;
+            margin: 10px 0;
             transition: background 0.3s;
             text-align: center;
         }
@@ -47,27 +49,47 @@
             background-color: var(--verde-wpp-hover);
         }
 
-        /* Cabeçalho Azul com Logo */
+        /* CABEÇALHO FIXO BRANCO */
         header {
-            background-color: var(--azul-principal);
-            color: var(--branco);
-            padding: 50px 20px;
-            text-align: center;
+            background-color: var(--branco);
+            color: var(--azul-principal);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border-bottom: 3px solid var(--azul-claro); /* Uma linha de acabamento */
         }
 
         header img.logo {
-            max-width: 200px;
-            margin-bottom: 20px;
+            max-width: 80px;
+            margin-bottom: 0;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        header .textos-header {
+            display: none; 
         }
 
-        header p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+        header .btn-whatsapp {
+            margin: 0;
+            padding: 8px 15px;
+            font-size: 1rem;
+        }
+
+        /* Seção de boas-vindas abaixo do cabeçalho */
+        .boas-vindas {
+            background-color: var(--azul-claro);
+            color: var(--branco);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .boas-vindas p {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
         }
 
         /* Seções Gerais */
@@ -78,18 +100,21 @@
             text-align: center;
         }
 
+        /* Títulos em branco para destacar no fundo azul */
         section h2 {
-            color: var(--azul-principal);
+            color: var(--branco);
             margin-bottom: 20px;
             font-size: 2rem;
         }
 
-        /* Destaques (SENAI, 10 anos) */
+        /* CARTÕES BRANCOS (Destaques, Produtos, Marcas e Avaliações) */
         .destaques {
-            background-color: var(--fundo-claro);
+            background-color: var(--branco);
+            color: var(--texto-escuro);
             padding: 30px;
             border-radius: 10px;
             margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         .destaques p {
@@ -98,7 +123,7 @@
             font-weight: bold;
         }
 
-        /* --- ESTILOS DO CARROSSEL AUTOMÁTICO --- */
+        /* Carrossel */
         .carrossel-container {
             overflow: hidden;
             width: 100%;
@@ -122,10 +147,11 @@
 
         .item-carrossel {
             background-color: var(--branco);
-            border: 1px solid #ccc;
+            color: var(--texto-escuro); /* Texto escuro dentro do cartão branco */
+            border: none;
             padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -156,17 +182,19 @@
         }
 
         .avaliacao {
-            background-color: var(--fundo-claro);
+            background-color: var(--branco);
+            color: var(--texto-escuro);
             padding: 20px;
             border-radius: 8px;
-            border-left: 5px solid var(--azul-principal);
+            border-left: 5px solid var(--verde-wpp); /* Mudei a borda lateral para verde para combinar com o botão */
             text-align: left;
             font-style: italic;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         /* Rodapé */
         footer {
-            background-color: var(--texto-escuro);
+            background-color: #000000; /* Preto para dar o fechamento visual da página */
             color: var(--branco);
             text-align: center;
             padding: 40px 20px;
@@ -181,12 +209,15 @@
 
     <header>
         <img src="assets/logo/apc-logo.png" alt="APC Refrigeração Logo" class="logo">
-        <p>Assistência Técnica Especializada</p>
-        <p><strong>Técnico Alexandre: (11) 97447-0078</strong></p>
         <a href="https://wa.me/5511974470078?text=Olá,%20gostaria%20de%20solicitar%20um%20atendimento%20da%20APC%20Refrigeração!" class="btn-whatsapp" target="_blank">
-            Fale Conosco pelo WhatsApp
+            WhatsApp
         </a>
     </header>
+
+    <section class="boas-vindas" style="max-width: 100%;">
+        <p>Assistência Técnica Especializada</p>
+        <p><strong>Técnico Alexandre: (11) 97447-0078</strong></p>
+    </section>
 
     <section>
         <div class="destaques">
@@ -200,7 +231,6 @@
         <h2>Equipamentos que Trabalhamos</h2>
         <div class="carrossel-container">
             <div class="carrossel-track">
-                
                 <div class="item-carrossel"><img src="assets/icons/ico_geladeira.jpeg" alt="Geladeira"><span>Geladeiras</span></div>
                 <div class="item-carrossel"><img src="assets/icons/ico_lavaloucas.jpeg" alt="Lava Louças"><span>Lava-Louças</span></div>
                 <div class="item-carrossel"><img src="assets/icons/ico_lavaroupas2.jpeg" alt="Máquina de Lavar"><span>Máquina de Lavar</span></div>
@@ -220,14 +250,13 @@
                 <div class="item-carrossel"><img src="assets/icons/ico_cooktop.jpeg" alt="Cooktop"><span>Cooktop</span></div>
                 <div class="item-carrossel"><img src="assets/icons/ico_purificador.jpeg" alt="Purificador de Água"><span>Purificador de Água</span></div>
                 <div class="item-carrossel"><img src="assets/icons/ico_coifa.jpeg" alt="Coifa"><span>Coifa</span></div>
-                
             </div>
         </div>
     </section>
 
-    <section style="background-color: var(--fundo-claro);">
+    <section style="background-color: var(--azul-claro); max-width: 100%;">
         <h2>Precisa de conserto rápido?</h2>
-        <p>Nossos técnicos estão prontos para te atender.</p>
+        <p style="margin-bottom: 15px;">Nossos técnicos estão prontos para te atender.</p>
         <a href="https://wa.me/5511974470078?text=Olá,%20gostaria%20de%20solicitar%20um%20atendimento%20da%20APC%20Refrigeração!" class="btn-whatsapp" target="_blank">
             Solicite um Orçamento no WhatsApp
         </a>
@@ -237,7 +266,6 @@
         <h2>Marcas que Atendemos</h2>
         <div class="carrossel-container">
             <div class="carrossel-track">
-                
                 <div class="item-carrossel"><img src="assets/icons/ico_brastemp.jpeg" alt="Brastemp"><span>Brastemp</span></div>
                 <div class="item-carrossel"><img src="assets/icons/ico_consul.jpeg" alt="Consul"><span>Consul</span></div>
                 <div class="item-carrossel"><img src="assets/icons/ico_midea.jpeg" alt="Midea"><span>Midea</span></div>
@@ -255,7 +283,6 @@
                 <div class="item-carrossel"><img src="assets/icons/ico_panasonic.jpeg" alt="Panasonic"><span>Panasonic</span></div>
                 <div class="item-carrossel"><img src="assets/icons/ico_samsung.jpeg" alt="Samsung"><span>Samsung</span></div>
                 <div class="item-carrossel"><img src="assets/icons/ico_lg.jpeg" alt="LG"><span>LG</span></div>
-
             </div>
         </div>
     </section>
